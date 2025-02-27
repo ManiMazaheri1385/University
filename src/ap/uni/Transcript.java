@@ -1,7 +1,6 @@
 package ap.uni;
 
 import ap.base.Person;
-
 import java.util.HashMap;
 
 public class Transcript {
