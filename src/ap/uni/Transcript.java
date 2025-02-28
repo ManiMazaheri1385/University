@@ -53,6 +53,9 @@ public class Transcript {
                 System.out.println("Course not found");
             }
         }
+
+        System.out.println("Grade Point Average: " + this.getGPA());
+
     }
 
     public double getGPA() {
