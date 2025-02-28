@@ -12,13 +12,23 @@ public class Main {
         Person person4 = new Person("Severus Snape", "6040");
         Person person5 = new Person("Albus Dumbledore", "6041");
 
-
         Student student1 = new Student(person1.id, 1991,1);
         Student student2 = new Student(person2.id, 1991,1);
         Student student3 = new Student(person3.id, 1991,2);
 
+        System.out.println("Students:");
+        System.out.println("Name: " + person1.name + ". Student Code: " + student1.studentCode);
+        System.out.println("Name: " + person2.name + ". Student Code: " + student2.studentCode);
+        System.out.println("Name: " + person3.name + ". Student Code: " + student3.studentCode);
+        System.out.println();
+
         Professor professor1 = new Professor(4, 1);
         Professor professor2 = new Professor(5, 2);
+
+        System.out.println("Professors:");
+        System.out.println("Name: " + person4.name + ". Professor ID: " + professor1.id);
+        System.out.println("Name: " + person5.name + ". Professor ID: " + professor2.id);
+        System.out.println();
 
         Course course1 = new Course("Potions", 2);
         Course course2 = new Course("Defence Against The Dark Arts", 3);
@@ -46,24 +56,11 @@ public class Main {
         transcript3.setGrade(2, 15.5);
         transcript3.setGrade(3, 14.75);
 
-        System.out.println("Students:");
-        System.out.println("Name: " + person1.name + ". Student Code: " + student1.studentCode);
-        System.out.println("Name: " + person2.name + ". Student Code: " + student2.studentCode);
-        System.out.println("Name: " + person3.name + ". Student Code: " + student3.studentCode);
-        System.out.println();
-
-        System.out.println("Professors:");
-        System.out.println("Name: " + person4.name + ". Professor ID: " + professor1.id);
-        System.out.println("Name: " + person5.name + ". Professor ID: " + professor2.id);
-        System.out.println();
-
         transcript1.printTranscript();
-        System.out.println("Grade Point Average: " + transcript1.getGPA());
         System.out.println();
         transcript2.printTranscript();
-        System.out.println("Grade Point Average: " + transcript2.getGPA());
         System.out.println();
         transcript3.printTranscript();
-        System.out.println("Grade Point Average: " + transcript3.getGPA());
+
     }
 }
