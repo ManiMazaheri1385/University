@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Student {
 
-    public int studentID;
+    public int id;
     public int personID;
     public int majorID;
     public final int entranceYear;
@@ -18,13 +18,13 @@ public class Student {
         this.entranceYear = entranceYear;
         this.majorID = majorID;
         studentList.add(this);
-        studentID = studentList.size();
+        id = studentList.size();
         setStudentCode();
     }
 
-    public static Student findById(int ID) {
+    public static Student findByID(int id) {
         for (Student student : studentList) {
-            if (ID == student.studentID) {
+            if (id == student.id) {
                 return student;
             }
         }
@@ -48,10 +48,10 @@ public class Student {
         String key = entranceYearCode + majorCode;
         int currentCount = studentCount.getOrDefault(key, 1);
         if (currentCount < 10) {
-            personCode += "0" + currentCount;
+            personCode += "00" + currentCount;
         }
         else {
-            personCode += currentCount;
+            personCode += "0" + currentCount;
         }
         studentCode = entranceYearCode + majorCode + personCode;
 

@@ -4,22 +4,22 @@ import java.util.ArrayList;
 
 public class Major {
 
-    public static ArrayList<Major> majorList = new ArrayList<Major>();
-    public static int numberOfStudents;
-    public int majorID;
+    public int id;
     public String name;
-    public final int maxCapacity;
+    public int numberOfStudents = 0;
+    public final int capacity;
+    public static ArrayList<Major> majorList = new ArrayList<Major>();
 
-    public Major(String name, int maxStudentNumber) {
+    public Major(String name, int capacity) {
         this.name = name;
-        maxCapacity = maxStudentNumber;
+        this.capacity = capacity;
         majorList.add(this);
-        majorID = majorList.size();
+        id = majorList.size();
     }
 
-    public static Major findById(int ID) {
+    public static Major findByID(int id) {
         for (Major major : majorList) {
-            if (ID == major.majorID) {
+            if (id == major.id) {
                 return major;
             }
         }
@@ -27,11 +27,11 @@ public class Major {
     }
 
     public void addStudent() {
-        if (numberOfStudents < maxCapacity) {
+        if (numberOfStudents < capacity) {
             numberOfStudents++;
         }
         else {
-            System.out.println("student is over max capacity");
+            System.out.println("student is over capacity");
         }
     }
 

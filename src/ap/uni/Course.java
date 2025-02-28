@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Course {
 
-    public int courseID;
+    public int id;
     public String title;
     public int units;
     public static ArrayList<Course> courseList = new ArrayList<Course>();
@@ -13,15 +13,16 @@ public class Course {
         this.title = title;
         this.units = units;
         courseList.add(this);
-        courseID = courseList.size();
+        id = courseList.size();
     }
 
-    public static Course findById(int ID) {
+    public static Course findByID(int id) {
         for (Course course : courseList) {
-            if (ID == course.courseID) {
+            if (id == course.id) {
                 return course;
             }
         }
         return null;
     }
+
 }

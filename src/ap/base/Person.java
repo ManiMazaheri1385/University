@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Person {
 
-    public int personID;
+    public int id;
     public String name;
     public final String nationalID;
     public static ArrayList<Person> personList = new ArrayList<Person>();
@@ -13,12 +13,12 @@ public class Person {
         this.name = name;
         this.nationalID = nationalID;
         personList.add(this);
-        personID = personList.size();
+        id = personList.size();
     }
 
-    public static Person findById(int ID) {
+    public static Person findByID(int id) {
         for (Person person : personList) {
-            if (ID == person.personID) {
+            if (id == person.id) {
                 return person;
             }
         }

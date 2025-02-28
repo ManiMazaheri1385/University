@@ -14,13 +14,13 @@ public class Transcript {
     }
 
     public void setGrade(int presentedCourseID, double grade) {
-        PresentedCourse course = PresentedCourse.findById(presentedCourseID);
+        PresentedCourse course = PresentedCourse.findByID(presentedCourseID);
         if (course != null) {
             if (course.studentIDList.contains(studentID)) {
                 transcript.put(presentedCourseID, grade);
             }
             else {
-                System.out.println("student ID " + studentID + " does not exist");
+                System.out.println("student ID " + studentID + " does not exist in this course");
             }
         }
         else {
@@ -29,18 +29,23 @@ public class Transcript {
     }
 
     public void printTranscript() {
-        Student student = Student.findById(studentID);
-        Person person = Person.findById(student.personID);
-        Major major = Major.findById(student.majorID);
-        System.out.println("Name: " + person.name);
-        System.out.println("Major: " + major.name);
-        System.out.println("Student Code: " + student.studentCode);
+        Student student = Student.findByID(studentID);
+        if (student != null) {
+            Person person = Person.findByID(student.personID);
+            Major major = Major.findByID(student.majorID);
+            System.out.println("Name: " + person.name);
+            System.out.println("Major: " + major.name);
+            System.out.println("Student Code: " + student.studentCode);
 
-        System.out.println("Grades:");
+            System.out.println("Grades:");
+        }
+        else {
+            System.out.println("Student not found");
+        }
 
         for (Integer courseID : transcript.keySet()) {
             double grade = transcript.get(courseID);
-            Course course = Course.findById(courseID);
+            Course course = Course.findByID(courseID);
             if (course != null) {
                 System.out.println(course.title + ": " + grade);
             }
@@ -54,7 +59,7 @@ public class Transcript {
         double totalGrade = 0;
         int totalUnits = 0;
         for (Integer courseID : transcript.keySet()) {
-            Course course = Course.findById(courseID);
+            Course course = Course.findByID(courseID);
             if (course != null) {
                 double grade = transcript.get(courseID) * course.units;
                 totalGrade += grade;
@@ -69,4 +74,5 @@ public class Transcript {
         }
         return totalGrade / totalUnits;
     }
+
 }

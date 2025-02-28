@@ -4,25 +4,25 @@ import java.util.ArrayList;
 
 public class PresentedCourse {
 
-    public static ArrayList<PresentedCourse> presentedCourseList = new ArrayList<PresentedCourse>();
-    public int presentedCourseID;
+    public int id;
     public int courseID;
     public int professorID;
-    public int maxCapacity;
+    public final int capacity;
     public static ArrayList<Integer> studentIDList;
+    public static ArrayList<PresentedCourse> presentedCourseList = new ArrayList<PresentedCourse>();
 
-    public PresentedCourse(int courseID, int professorID, int maxCapacity) {
+    public PresentedCourse(int courseID, int professorID, int capacity) {
         this.courseID = courseID;
         this.professorID = professorID;
-        this.maxCapacity = maxCapacity;
-        studentIDList = new ArrayList<Integer>(maxCapacity);
+        this.capacity = capacity;
+        studentIDList = new ArrayList<Integer>(capacity);
         presentedCourseList.add(this);
-        presentedCourseID = presentedCourseList.size();
+        id = presentedCourseList.size();
     }
 
-    public static PresentedCourse findById(int ID) {
+    public static PresentedCourse findByID(int id) {
         for (PresentedCourse presentedCourse : presentedCourseList) {
-            if (ID == presentedCourse.presentedCourseID) {
+            if (id == presentedCourse.id) {
                 return presentedCourse;
             }
         }
@@ -30,7 +30,7 @@ public class PresentedCourse {
     }
 
     public void addStudent(int studentID) {
-        if (studentIDList.size() < maxCapacity) {
+        if (studentIDList.size() < capacity) {
             studentIDList.add(studentID);
         } else {
             System.out.println("student list is full");

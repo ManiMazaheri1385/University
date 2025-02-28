@@ -13,9 +13,9 @@ public class Main {
         Person person5 = new Person("Albus Dumbledore", "6041");
 
 
-        Student student1 = new Student(person1.personID, 1991,1);
-        Student student2 = new Student(person2.personID, 1991,1);
-        Student student3 = new Student(person3.personID, 1991,2);
+        Student student1 = new Student(person1.id, 1991,1);
+        Student student2 = new Student(person2.id, 1991,1);
+        Student student3 = new Student(person3.id, 1991,2);
 
         Professor professor1 = new Professor(4, 1);
         Professor professor2 = new Professor(5, 2);
@@ -53,8 +53,8 @@ public class Main {
         System.out.println();
 
         System.out.println("Professors:");
-        System.out.println("Name: " + person4.name + ". Professor ID: " + professor1.professorID);
-        System.out.println("Name: " + person5.name + ". Professor ID: " + professor2.professorID);
+        System.out.println("Name: " + person4.name + ". Professor ID: " + professor1.id);
+        System.out.println("Name: " + person5.name + ". Professor ID: " + professor2.id);
         System.out.println();
 
         transcript1.printTranscript();
