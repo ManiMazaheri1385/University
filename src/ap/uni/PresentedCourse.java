@@ -8,7 +8,7 @@ public class PresentedCourse {
     public int courseID;
     public int professorID;
     public final int capacity;
-    public static ArrayList<Integer> studentIDList;
+    public ArrayList<Integer> studentIDList;
     public static ArrayList<PresentedCourse> presentedCourseList = new ArrayList<PresentedCourse>();
 
     public PresentedCourse(int courseID, int professorID, int capacity) {
